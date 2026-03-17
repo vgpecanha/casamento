@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vítor ♥ Thamyres - Lista de Casamento</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family: Georgia, "Times New Roman", serif;
+        color: #2b2b2b;
+        background-color: #faf7f2;
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image: url("img/plano_fundo.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        opacity: 0.08;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        backdrop-filter: blur(12px);
+        background: rgba(239, 231, 219, 0.96);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 72px;
+      }
+
+      .logo {
+        font-family: "Times New Roman", "Playfair Display", serif;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        font-size: 0.75rem;
+        text-align: center;
+      }
+
+      .logo-main,
+      .logo-separator,
+      .logo-date {
+        display: inline-block;
+        padding: 4px 0;
+      }
+
+      .logo-main,
+      .logo-date {
+        border-top: 1px solid #c2a68a;
+        border-bottom: 1px solid #c2a68a;
+      }
+
+      .logo-separator {
+        padding: 4px 8px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 24px;
+        font-size: 0.85rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      nav a {
+        position: relative;
+        padding-bottom: 4px;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 1px;
+        background-color: #c2a68a;
+        transition: width 0.25s ease;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 96px 0 80px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 32px;
+        align-items: center;
+        justify-items: center;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.8rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #8a7a66;
+        margin-bottom: 16px;
+      }
+
+      .hero-title {
+        font-family: "Times New Roman", "Playfair Display", serif;
+        font-size: clamp(2.6rem, 4vw, 3.6rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+        max-width: 480px;
+        color: #4a4a4a;
+        margin: 0 auto 32px;
+        text-align: center;
+      }
+
+      .hero-date {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        padding: 10px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      .hero-date-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background-color: #c2a68a;
+      }
+
+      .hero-image-wrapper {
+        position: relative;
+        border-radius: 32px;
+        overflow: hidden;
+        background: radial-gradient(circle at top left, #f4e4cf, #e4dad0);
+        min-height: 260px;
+      }
+
+      .hero-image-accent {
+        position: absolute;
+        inset: 18px;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        mix-blend-mode: soft-light;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .section-header {
+        margin-bottom: 40px;
+        text-align: center;
+      }
+
+      .section-eyebrow {
+        font-size: 0.75rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #8a7a66;
+        margin-bottom: 8px;
+      }
+
+      .section-title {
+        font-family: "Times New Roman", "Playfair Display", serif;
+        font-size: 1.9rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      .section-description {
+        max-width: 640px;
+        margin: 0 auto;
+        color: #4a4a4a;
+        font-size: 0.98rem;
+      }
+
+      .intro {
+        background-color: #f3ece4;
+      }
+
+      .intro-content {
+        max-width: 720px;
+        margin: 0 auto;
+        font-size: 1rem;
+        color: #3b3b3b;
+        text-align: center;
+      }
+
+      .intro-content p + p {
+        margin-top: 12px;
+      }
+
+      .gifts {
+        background-color: #faf7f2;
+      }
+
+      .gift-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .gift-card {
+        background-color: #ffffff;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          translate 0.25s ease;
+      }
+
+      .gift-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.06);
+      }
+
+      .gift-image {
+        position: relative;
+        flex: 1 1 180px;
+        min-height: 120px;
+        background: #e5ddcf;
+        overflow: hidden;
+      }
+
+      .gift-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .gift-tag {
+        position: absolute;
+        left: 16px;
+        top: 16px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background-color: rgba(250, 247, 242, 0.94);
+        font-size: 0.7rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #8a7a66;
+      }
+
+      .gift-body {
+        padding: 12px 18px 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 8px;
+        flex: 0 0 auto;
+      }
+
+      .gift-title {
+        font-family: "Times New Roman", "Playfair Display", serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .gift-description {
+        font-size: 0.92rem;
+        color: #555;
+        line-clamp: 3;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .gift-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 6px;
+        gap: 12px;
+      }
+
+      .gift-price {
+        font-weight: 600;
+        font-size: 0.98rem;
+        color: #3b3b3b;
+      }
+
+      .gift-price span {
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #8a7a66;
+        display: block;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 9px 16px;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        background-color: #2f2b27;
+        color: #fdfaf6;
+        border: 1px solid #2f2b27;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease,
+          transform 0.2s ease, box-shadow 0.2s ease;
+        white-space: nowrap;
+      }
+
+      .btn-primary:hover {
+        background-color: #fdfaf6;
+        color: #2f2b27;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+        transform: translateY(-1px);
+      }
+
+      footer {
+        border-top: 1px solid rgba(0, 0, 0, 0.04);
+        padding: 32px 0 40px;
+        background-color: #f6f0e6;
+        margin-top: auto;
+      }
+
+      .footer-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        font-size: 0.86rem;
+        color: #6a6259;
+      }
+
+      .footer-inner span {
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-size: 0.72rem;
+      }
+
+      @media (max-width: 960px) {
+        .hero {
+          padding-top: 80px;
+        }
+
+        .hero-grid {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 40px;
+        }
+
+        .hero-image-wrapper {
+          order: -1;
+        }
+
+        .gift-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-inner {
+          height: 64px;
+        }
+
+        nav ul {
+          gap: 16px;
+          font-size: 0.75rem;
+        }
+
+        .hero {
+          padding: 72px 0 64px;
+        }
+
+        .gift-grid {
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .section {
+          padding: 56px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="container header-inner">
+          <div class="logo">
+            <span class="logo-main">V ♥ T</span>
+            <span class="logo-separator">•</span>
+            <span class="logo-date">02.05.2026</span>
+          </div>
+          <nav aria-label="Navegação principal">
+            <ul></ul>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="container hero-grid">
+            <div style="text-align: center;">
+              <h1 class="hero-title">Vítor ♥ Thamyres</h1>
+              <p class="hero-subtitle">
+                Estamos muito felizes em compartilhar este momento com você.
+                Preparamos com carinho uma lista de presentes que fazem parte do
+                nosso novo capítulo juntos.
+              </p>
+              <div class="hero-date" aria-label="Data do casamento">
+                <span class="hero-date-dot" aria-hidden="true"></span>
+                <span>Casamento</span>
+                <strong>02.05.2026</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="lista-presentes" class="section gifts">
+          <div class="container">
+            <div class="gift-grid">
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/tokyo_skytree.jpg"
+                    alt="Tokyo Skytree à noite em Tóquio"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Apreciar a vista na Tokyo Skytree</h3>
+                  <p class="gift-description">
+                    Vista panorâmica incrível de Tóquio do alto da torre mais alta do
+                    Japão.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 200,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/cerimonia-do-cha-kyoto.jpg"
+                    alt="Cerimônia do chá japonesa"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Cerimônia do Chá</h3>
+                  <p class="gift-description">
+                    Experiência tradicional japonesa com ritual do chá e cultura
+                    local.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 340,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/omakase-tokyo.jpg"
+                    alt="Sushi omakase preparado por um chef"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Omakase para o casal</h3>
+                  <p class="gift-description">
+                    Jantar especial onde o chef escolhe pratos frescos e exclusivos.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 250,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/massagem_noiva.jpg"
+                    alt="Massagem relaxante em um spa"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Massagem pra Noiva</h3>
+                  <p class="gift-description">
+                    Momento relaxante com massagem para aliviar o estresse da
+                    viagem.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 150,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/kyoto_tori.jpg"
+                    alt="Templo em Quioto, Japão"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Visitar templos em Quioto</h3>
+                  <p class="gift-description">
+                    Passeio por templos históricos com arquitetura e cultura milenar.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 120,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/shibuya_sky.jpg"
+                    alt="Vista moderna de Shibuya, Tóquio"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Apreciar a vista no Shibuya Sky</h3>
+                  <p class="gift-description">
+                    Mirante moderno com vista 360° do famoso cruzamento de Shibuya.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 150,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/umeda_sky_building.jpg"
+                    alt="Skyline de Osaka com prédio icônico"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Visitar Umeda Sky Building</h3>
+                  <p class="gift-description">
+                    Observatório com vista única de Osaka em um prédio icônico.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 136,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/bento-shinkansen.jpg"
+                    alt="Bentô japonês"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Almoço de Bentô no Shinkansen (Trem-Bala)</h3>
+                  <p class="gift-description">
+                    Comer bentô premium no trem-bala apreciando paisagens do Japão.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 150,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/goshuin.jpg"
+                    alt="Caligrafia japonesa"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Coleção de Goshuin (Caligrafias Sagradas)</h3>
+                  <p class="gift-description">
+                    Coleta de selos e caligrafias únicas em templos de Quioto e
+                    Tóquio.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 200,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/saque_takayama.jpg"
+                    alt="Degustação de saquê"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Degustação de Saquê em Takayama</h3>
+                  <p class="gift-description">
+                    Provar diferentes tipos de saquê em uma cidade tradicional
+                    japonesa.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 180,00</div>
+                    <button class="btn-primary" type="button">Presentear</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" style="padding-top: 40px; padding-bottom: 40px;">
+          <div class="container" style="text-align: center; max-width: 640px;">
+            <h2
+              style="
+                font-family: 'Times New Roman', 'Playfair Display', serif;
+                font-size: 1.4rem;
+                letter-spacing: 0.16em;
+                text-transform: uppercase;
+                margin-bottom: 12px;
+              "
+            >
+              Presente em PIX
+            </h2>
+            <p style="font-size: 0.95rem; color: #4a4a4a; margin-bottom: 16px;">
+              Se você preferir presentear em PIX, deixamos abaixo os dados do Vítor.
+            </p>
+            <div
+              style="
+                display: inline-block;
+                padding: 14px 22px;
+                border-radius: 16px;
+                border: 1px dashed #c2a68a;
+                background-color: rgba(255, 255, 255, 0.9);
+                font-size: 0.95rem;
+                color: #3b3b3b;
+              "
+            >
+              <div style="margin-bottom: 8px; font-weight: 600;">
+                Chave PIX do Vítor:
+              </div>
+              <div
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 10px;
+                  font-family: 'SF Mono', ui-monospace, Menlo, Monaco, Consolas,
+                    'Liberation Mono', 'Courier New', monospace;
+                  font-size: 0.9rem;
+                "
+              >
+                <!-- Substitua pelo dado real do PIX, por exemplo: CPF, e-mail ou celular -->
+                <span id="pix-chave-vitor" style="letter-spacing: 0.06em;">
+                  000.000.000-00
+                </span>
+                <button
+                  type="button"
+                  onclick="navigator.clipboard && navigator.clipboard.writeText && navigator.clipboard.writeText(document.getElementById('pix-chave-vitor').textContent.trim()); this.textContent='Copiado!'; setTimeout(() => this.textContent='Copiar', 1500);"
+                  style="
+                    border-radius: 999px;
+                    border: 1px solid #c2a68a;
+                    background-color: #faf7f2;
+                    padding: 6px 12px;
+                    cursor: pointer;
+                    font-size: 0.78rem;
+                    letter-spacing: 0.16em;
+                    text-transform: uppercase;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                  "
+                >
+                  <span
+                    style="
+                      width: 12px;
+                      height: 12px;
+                      border-radius: 3px;
+                      border: 1px solid #c2a68a;
+                      position: relative;
+                    "
+                  >
+                    <span
+                      style="
+                        position: absolute;
+                        top: 3px;
+                        left: 3px;
+                        width: 9px;
+                        height: 9px;
+                        border-radius: 2px;
+                        border: 1px solid #c2a68a;
+                        background-color: #faf7f2;
+                      "
+                    ></span>
+                  </span>
+                  <span>Copiar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div class="container footer-inner">
+          <p>Obrigado por fazer parte deste momento tão especial na nossa vida.</p>
+          <span>Vítor &amp; Thamyres — 02.05.2026</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
