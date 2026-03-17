@@ -511,7 +511,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 200,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -531,7 +531,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 340,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -550,7 +550,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 250,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -570,7 +570,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 150,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -589,7 +589,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 120,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -608,7 +608,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 150,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -627,7 +627,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 136,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -646,7 +646,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 150,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -666,7 +666,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 200,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -686,7 +686,7 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 180,00</div>
-                    <button class="btn-primary" type="button">Presentear</button>
+                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -722,7 +722,7 @@
               "
             >
               <div style="margin-bottom: 8px; font-weight: 600;">
-                Chave PIX do Vítor:
+                Chave PIX - Wise:
               </div>
               <div
                 style="
@@ -736,7 +736,7 @@
               >
                 <!-- Substitua pelo dado real do PIX, por exemplo: CPF, e-mail ou celular -->
                 <span id="pix-chave-vitor" style="letter-spacing: 0.06em;">
-                  000.000.000-00
+                  7d7a6988-c5b7-4014-8461-6cb08d5b89e4
                 </span>
                 <button
                   type="button"
@@ -792,6 +792,24 @@
         </div>
       </footer>
     </div>
+
+    <script>
+      function copyPix(button) {
+        const pixKey = "7d7a6988-c5b7-4014-8461-6cb08d5b89e4";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(pixKey).then(() => {
+            button.textContent = "PIX copiado!";
+            button.style.backgroundColor = "#c2a68a";
+            button.style.color = "#fff";
+            setTimeout(() => {
+              button.textContent = "COPIAR PIX";
+              button.style.backgroundColor = "#2f2b27";
+              button.style.color = "#fdfaf6";
+            }, 1500);
+          });
+        }
+      }
+    </script>
   </body>
 </html>
 
