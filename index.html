@@ -40,17 +40,32 @@
         overflow-x: hidden;
       }
 
-      body::before {
-        content: "";
+      .bg-collage {
         position: fixed;
         inset: 0;
         z-index: -1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         pointer-events: none;
-        background-image: url("img/plano_fundo.png");
+        opacity: 0.1;
+      }
+
+      .bg-panel {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        opacity: 0.08;
+      }
+
+      .bg-panel-1 {
+        background-image: url("img/plano_fundo.png");
+      }
+
+      .bg-panel-2 {
+        background-image: url("img/plano_fundo2.jpeg");
+      }
+
+      .bg-panel-3 {
+        background-image: url("img/plano_fundo3.jpeg");
       }
 
       img {
@@ -350,7 +365,7 @@
       .gift-meta {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         margin-top: 6px;
         gap: 12px;
       }
@@ -417,6 +432,11 @@
       }
 
       @media (max-width: 960px) {
+        .bg-collage {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(3, minmax(0, 1fr));
+        }
+
         .hero {
           padding-top: 80px;
         }
@@ -460,6 +480,12 @@
     </style>
   </head>
   <body>
+    <div class="bg-collage" aria-hidden="true">
+      <div class="bg-panel bg-panel-1"></div>
+      <div class="bg-panel bg-panel-2"></div>
+      <div class="bg-panel bg-panel-3"></div>
+    </div>
+
     <div class="page">
       <header>
         <div class="container header-inner">
@@ -480,9 +506,10 @@
             <div style="text-align: center;">
               <h1 class="hero-title">Vítor ♥ Thamyres</h1>
               <p class="hero-subtitle">
-                Estamos muito felizes em compartilhar este momento com você.
-                Preparamos com carinho uma lista de presentes que fazem parte do
-                nosso novo capítulo juntos.
+                Para a nossa lua de mel, escolhemos o Japão: Um destino que sempre fez parte dos nossos sonhos.
+E, ao invés de presentes tradicionais, gostaríamos de colecionar memórias inesquecíveis!
+<br/><br/>
+Ao longo dessa página, você encontrará algumas dessas experiências que sonhamos em viver por lá… cada uma delas representa um pedacinho dessa viagem tão especial para nós.
               </p>
               <div class="hero-date" aria-label="Data do casamento">
                 <span class="hero-date-dot" aria-hidden="true"></span>
@@ -511,7 +538,6 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 200,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -520,18 +546,17 @@
                 <div class="gift-image">
                   <img
                     src="img/cerimonia-do-cha-kyoto.jpg"
-                    alt="Cerimônia do chá japonesa"
+                    alt="Cerimônia do chá quioto"
                   />
                 </div>
                 <div class="gift-body">
-                  <h3 class="gift-title">Cerimônia do Chá</h3>
+                  <h3 class="gift-title">Cerimônia do Chá em Quioto</h3>
                   <p class="gift-description">
                     Experiência tradicional japonesa com ritual do chá e cultura
                     local.
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 340,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -550,7 +575,6 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 250,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -558,19 +582,17 @@
               <article class="gift-card">
                 <div class="gift-image">
                   <img
-                    src="img/massagem_noiva.jpg"
-                    alt="Massagem relaxante em um spa"
+                    src="img/monte_fuji.jpg"
+                    alt="Monte Fuji"
                   />
                 </div>
                 <div class="gift-body">
-                  <h3 class="gift-title">Massagem pra Noiva</h3>
+                  <h3 class="gift-title">Visita ao Monte Fuji</h3>
                   <p class="gift-description">
-                    Momento relaxante com massagem para aliviar o estresse da
-                    viagem.
+                    Passeio para apreciar a beleza e a grandiosidade do Monte Fuji.
                   </p>
                   <div class="gift-meta">
-                    <div class="gift-price"><span>Valor</span>R$ 150,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
+                    <div class="gift-price"><span>Valor</span>R$ 280,00</div>
                   </div>
                 </div>
               </article>
@@ -589,7 +611,6 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 120,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -608,7 +629,6 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 150,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -627,7 +647,6 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 136,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -642,11 +661,10 @@
                 <div class="gift-body">
                   <h3 class="gift-title">Almoço de Bentô no Shinkansen (Trem-Bala)</h3>
                   <p class="gift-description">
-                    Comer bentô premium no trem-bala apreciando paisagens do Japão.
+                    Comer bentô no trem-bala apreciando paisagens do Japão.
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 150,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -666,7 +684,6 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 200,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
                   </div>
                 </div>
               </article>
@@ -686,7 +703,150 @@
                   </p>
                   <div class="gift-meta">
                     <div class="gift-price"><span>Valor</span>R$ 180,00</div>
-                    <button class="btn-primary" type="button" onclick="copyPix(this)">COPIAR PIX</button>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/lamem_japao.jpg"
+                    alt="Lamen em Tóquio"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Lamen em Tóquio</h3>
+                  <p class="gift-description">
+                    Duas tigelas de lamen com todos os toppings (ovo, porco extra, alga) + guiozas e bebidas.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 140,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/tonkatsu.jpg"
+                    alt="Tonkatsu em Tóquio"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Tonkatsu em Tóquio</h3>
+                  <p class="gift-description">
+                    O famoso porco empanado em versão "Kurobuta" (porco preto), servido com o set completo de acompanhamentos.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 180,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/hidda_beef_takayama.png"
+                    alt="Hida Beef Experience em Takayama"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Hida Beef Experience</h3>
+                  <p class="gift-description">
+                    Uma degustação generosa da carne marmorizada de Takayama, incluindo os famosos sushis de carne e espetinhos.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 220,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/nishiki_mercado.jpg"
+                    alt="Banquete no Mercado Nishiki"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Banquete no Mercado Nishiki</h3>
+                  <p class="gift-description">
+                    Uma verdadeira "limpa" nas barracas de Quioto: frutos do mar grelhados, espetinhos de tamago e doces artesanais.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 160,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/dotonbori.jpg"
+                    alt="Tour Gastronômico Dotonbori"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Tour Gastronômico Dotonbori</h3>
+                  <p class="gift-description">
+                    A experiência clássica de Osaka: fartura de Takoyaki, Okonomiyaki e as luzes de neon como cenário.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 150,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/castelo_osaka.jpg"
+                    alt="Expedição pelos Castelos"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Expedição pelos Castelos</h3>
+                  <p class="gift-description">
+                    Entradas para os grandes castelos (Osaka, Himeji ou Nijo) e acesso aos jardins históricos preservados.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 250,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/kanazawa_sorvete.jpg"
+                    alt="Sorvete de Ouro em Kanazawa"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Sorvete de Ouro em Kanazawa</h3>
+                  <p class="gift-description">
+                    O icônico sorvete coberto com folha de ouro real, incluindo uma pausa para chá verde em uma casa tradicional.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 120,00</div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="gift-card">
+                <div class="gift-image">
+                  <img
+                    src="img/cupnoodles_museu.jpg"
+                    alt="Dia de Inventores Cup Noodles"
+                  />
+                </div>
+                <div class="gift-body">
+                  <h3 class="gift-title">Dia de Inventores: Cup Noodles</h3>
+                  <p class="gift-description">
+                    Ingressos para o museu em Yokohama + a oficina de criação do seu próprio pote personalizado.
+                  </p>
+                  <div class="gift-meta">
+                    <div class="gift-price"><span>Valor</span>R$ 130,00</div>
                   </div>
                 </div>
               </article>
@@ -705,10 +865,12 @@
                 margin-bottom: 12px;
               "
             >
-              Presente em PIX
+              COMO PRESENTEAR?
             </h2>
             <p style="font-size: 0.95rem; color: #4a4a4a; margin-bottom: 16px;">
-              Se você preferir presentear em PIX, deixamos abaixo os dados do Vítor.
+             Caso deseje fazer parte dessa experiência conosco, você pode contribuir com qualquer uma delas - ou com qualquer valor - via PIX!
+<br />
+Nos lembraremos de você em cada ramen, passeio e descoberta por lá!
             </p>
             <div
               style="
